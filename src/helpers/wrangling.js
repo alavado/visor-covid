@@ -7,7 +7,8 @@ export const procesarCasosComunas = async data => {
     codigo: Number(comuna['Codigo comuna']),
     codigoRegion: Number(comuna['Codigo region']),
     nombre: comuna['Comuna'],
-    casos: fechas.map(f => comuna[f])
+    casos: fechas.map(f => Number(comuna[f])),
+    casosNuevos: fechas.map((f, i) => Number(comuna[fechas[i]] - comuna?.[fechas[i - 1]] || 0))
   }))
   return { comunas, fechas }
 }
