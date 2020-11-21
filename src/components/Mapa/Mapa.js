@@ -1,26 +1,27 @@
-import React, { useState } from 'react'
-import mapStyle from './mapStyle.json'
-import ReactMapGL from 'react-map-gl'
-import CapaComunas from './CapaComunas'
+import * as React from 'react'
+import ReactMapboxGl from 'react-mapbox-gl'
+import style from './mapStyle.json'
+import CapaComunas from './CapaComunas/CapaComunas'
+
+const Map = ReactMapboxGl({ accessToken: '9sVe3g7n8Rv4JJBJXlbK' })
+
+const mapStyle = {
+  flex: 1,
+  height: '100vh',
+  width: '100%'
+}
 
 const Mapa = () => {
-
-  const [viewport, setViewport] = useState({
-    width: '100%',
-    height: '100vh',
-    latitude: -39.204954641160536,
-    longitude: -69.26430872363804,
-    zoom: 8
-  })
+  const center = [-69.26430872363804, -39.204954641160536]
 
   return (
-    <ReactMapGL
-      {...viewport}
-      mapStyle={mapStyle}
-      onViewportChange={nextViewport => setViewport(nextViewport)}
+    <Map
+      style={style}
+      containerStyle={mapStyle}
+      center={center}
     >
       <CapaComunas />
-    </ReactMapGL>
+    </Map>
   )
 }
 

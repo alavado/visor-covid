@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from 'react'
 import { useQuery } from 'react-query'
 import { fetchCasosComunas } from '../../../queries/minciencia'
-import { Source, Layer } from 'react-map-gl'
 import geoJSON from '../../../data/geojson/comunas.json'
+import { GeoJSONLayer } from 'react-mapbox-gl'
 
 const CapaComunas = () => {
 
@@ -35,25 +35,40 @@ const CapaComunas = () => {
   if (error) {
     return 'Error: ' + error.message
   }
-
+console.log(geoJSONConDatos)
   return (
-    <Source id="capa-datos-regiones" type="geojson" data={geoJSONConDatos}>
-      <Layer
-        id="data2"
-        type="fill"
-        paint={{
-          "fill-color": ['to-color', ['at', posicion, ['get', 'colores']]],
+    <>
+      <GeoJSONLayer
+        data={geoJSONConDatos}
+        fillPaint={{
+          "fill-color": ['to-color', ['at', posicion, ['get', 'colores']]]
         }}
       />
-      <Layer
-        id="data2-poligono-stroke"
-        type="line"
-        paint={{
+      <GeoJSONLayer
+        data={geoJSONConDatos}
+        linePaint={{
           'line-color': 'rgba(0, 0, 0, 0.5)',
           'line-width': 1
         }}
       />
-    </Source>
+    </>
+    // <Source id="capa-datos-regiones" type="geojson" data={geoJSONConDatos}>
+    //   <Layer
+    //     id="data2"
+    //     type="fill"
+    //     paint={{
+    //       "fill-color": ['to-color', ['at', posicion, ['get', 'colores']]],
+    //     }}
+    //   />
+    //   <Layer
+    //     id="data2-poligono-stroke"
+    //     type="line"
+        // paint={{
+        //   'line-color': 'rgba(0, 0, 0, 0.5)',
+        //   'line-width': 1
+        // }}
+    //   />
+    // </Source>
   )
 }
 
