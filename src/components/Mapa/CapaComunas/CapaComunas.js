@@ -3,6 +3,7 @@ import { useQuery } from 'react-query'
 import { fetchCasosComunas } from '../../../queries/minciencia'
 import geoJSON from '../../../data/geojson/comunas.json'
 import { GeoJSONLayer } from 'react-mapbox-gl'
+import './CapaComunas.css'
 
 const CapaComunas = () => {
 
@@ -38,6 +39,10 @@ const CapaComunas = () => {
 console.log(geoJSONConDatos)
   return (
     <>
+      <div className="CapaComunas__controles">
+        <button onClick={() => setPosicion(posicion - 1)}>-</button>
+        <button onClick={() => setPosicion(posicion + 1)}>+</button>
+      </div>
       <GeoJSONLayer
         data={geoJSONConDatos}
         fillPaint={{
@@ -52,23 +57,6 @@ console.log(geoJSONConDatos)
         }}
       />
     </>
-    // <Source id="capa-datos-regiones" type="geojson" data={geoJSONConDatos}>
-    //   <Layer
-    //     id="data2"
-    //     type="fill"
-    //     paint={{
-    //       "fill-color": ['to-color', ['at', posicion, ['get', 'colores']]],
-    //     }}
-    //   />
-    //   <Layer
-    //     id="data2-poligono-stroke"
-    //     type="line"
-        // paint={{
-        //   'line-color': 'rgba(0, 0, 0, 0.5)',
-        //   'line-width': 1
-        // }}
-    //   />
-    // </Source>
   )
 }
 
