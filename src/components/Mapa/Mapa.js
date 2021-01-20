@@ -3,7 +3,7 @@ import ReactMapboxGl from 'react-mapbox-gl'
 import style from './mapStyle.json'
 import CapaComunas from './CapaComunas/CapaComunas'
 
-const Map = ReactMapboxGl({ accessToken: 'BrLsDPQFyZaR4hSi1Uy2', apiUrl: 'https://api.maptiler.com' })
+const Map = ReactMapboxGl({ accessToken: 'pk.eyJ1IjoiYWxlNjE1IiwiYSI6ImNqbDZ5eGt3ZDAxcGszdm83Z3piZ3YwdTcifQ.0dSxbx5BR0aoOsarUYmArQ' })
 
 const mapStyle = {
   flex: 1,

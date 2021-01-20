@@ -23,12 +23,12 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=9sVe3g7n8Rv4JJBJXlbK",
-      "attribution": "© MapTiler</a> <a href='https://www.openstreetmap.org/copyright' target='_blank' rel='noopener noreferrer'>© OpenStreetMap contributors</a>"
+      "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=BrLsDPQFyZaR4hSi1Uy2",
+      "attribution": ""
     }
   },
   "sprite": "https://openmaptiles.github.io/dark-matter-gl-style/sprite",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=9sVe3g7n8Rv4JJBJXlbK",
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=BrLsDPQFyZaR4hSi1Uy2",
   "layers": [
     {
       "id": "background",
